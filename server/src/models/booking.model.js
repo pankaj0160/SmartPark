@@ -1,0 +1,105 @@
+import mongoose from 'mongoose';
+
+const bookingSchema = new mongoose.Schema(
+  {
+    bookingCode: {
+      type: String,
+      unique: true,
+      required: true,
+      index: true,
+      trim: true,
+      uppercase: true
+    },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true,
+      index: true
+    },
+    parking: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Parking',
+      required: true,
+      index: true
+    },
+    vehicleType: {
+      type: String,
+      enum: ['2-wheeler', '4-wheeler'],
+      required: true
+    },
+    bookingDate: {
+      type: String,
+      required: true,
+      match: /^\d{4}-\d{2}-\d{2}$/,
+      index: true
+    },
+    startTime: {
+      type: String,
+      required: true,
+      match: /^([01]\d|2[0-3]):[0-5]\d$/
+    },
+    endTime: {
+      type: String,
+      required: true,
+      match: /^([01]\d|2[0-3]):[0-5]\d$/
+    },
+    slotCount: {
+      type: Number,
+      required: true,
+      min: 1
+    },
+    totalAmount: {
+      type: Number,
+      required: true,
+      min: 0
+    },
+    status: {
+      type: String,
+      enum: ['pending', 'confirmed', 'cancelled', 'completed'],
+      default: 'confirmed',
+      index: true
+    },
+    bookingStatus: {
+      type: String,
+      enum: ['confirmed', 'cancelled'],
+      default: 'confirmed',
+      index: true
+    },
+    paymentStatus: {
+      type: String,
+      enum: ['pending', 'paid', 'failed'],
+      default: 'pending'
+    },
+    isTestPayment: {
+      type: Boolean,
+      default: false
+    },
+    razorpayOrderId: {
+      type: String,
+      default: ''
+    },
+    razorpayPaymentId: {
+      type: String,
+      default: ''
+    },
+    paymentExpiresAt: {
+      type: Date,
+      default: null
+    },
+    cancelledBy: {
+      type: String,
+      enum: ['user', 'admin', 'system'],
+      default: null
+    }
+  },
+  {
+    timestamps: true
+  }
+);
+
+bookingSchema.index({ user: 1, createdAt: -1 });
+bookingSchema.index({ parking: 1, bookingDate: 1, status: 1, startTime: 1, endTime: 1 });
+bookingSchema.index({ parking: 1, bookingDate: 1, paymentStatus: 1, bookingStatus: 1, startTime: 1, endTime: 1 });
+bookingSchema.index({ razorpayOrderId: 1 }, { sparse: true });
+
+export const Booking = mongoose.model('Booking', bookingSchema);
