@@ -1,130 +1,175 @@
-# 🚗 SmartPark — Smart Parking Management System
+# 🚗 SmartPark — Intelligent Smart Parking Management Platform
 
-SmartPark is a full-stack intelligent parking reservation platform that helps **drivers find and book parking spaces**, enables **parking owners to manage listings and earnings**, and provides **administrators with full system oversight and analytics**.
+<div align="center">
 
-Built as a real-world SaaS-style full-stack project with authentication, booking workflows, payment integration, occupancy management, notifications, dashboards, and analytics.
+![React](https://img.shields.io/badge/Frontend-React-blue?style=for-the-badge&logo=react)
+![Node.js](https://img.shields.io/badge/Backend-Node.js-green?style=for-the-badge&logo=node.js)
+![Express](https://img.shields.io/badge/API-Express-black?style=for-the-badge&logo=express)
+![MongoDB](https://img.shields.io/badge/Database-MongoDB-green?style=for-the-badge&logo=mongodb)
+![JWT](https://img.shields.io/badge/Auth-JWT-orange?style=for-the-badge)
+![Razorpay](https://img.shields.io/badge/Payments-Razorpay-blue?style=for-the-badge)
+![Vercel](https://img.shields.io/badge/Frontend%20Deploy-Vercel-black?style=for-the-badge&logo=vercel)
+![Render](https://img.shields.io/badge/Backend%20Deploy-Render-purple?style=for-the-badge)
 
----
+### Smart Parking Slot Rental & Availability Platform
 
-## 📌 Problem Statement
+A full-stack intelligent parking reservation platform that helps users discover, reserve, and manage parking spaces efficiently.
 
-Finding parking in busy urban areas is frustrating, time-consuming, and inefficient.
-
-Common challenges:
-
-- Drivers waste time searching for parking
-- Parking owners cannot efficiently manage reservations
-- No centralized booking management
-- Manual parking handling causes conflicts and overbooking
-- Poor visibility into occupancy and revenue
-
-SmartPark solves these problems with a modern digital parking management platform.
+</div>
 
 ---
 
-# ✨ Key Features
+# 🌐 Live Project
+
+### Frontend
+https://smart-park-client.vercel.app
+
+### Backend API
+https://smartpark-1-sg1y.onrender.com
+
+### GitHub Repository
+https://github.com/pankaj0160/SmartPark
 
 ---
 
-## 👤 Driver / User Features
+# 📌 Problem Statement
 
-- User registration & secure login
-- Role-based authentication
-- Discover available parking spaces
-- Search parking by location
-- Filter parking listings
-- View parking details
-- Date & time based parking booking
+Urban parking management is inefficient, frustrating, and often chaotic.
+
+Common real-world problems include:
+
+- Drivers wasting time searching for parking
+- Manual parking allocation systems
+- Overbooking and reservation conflicts
+- Lack of centralized parking discovery
+- Poor occupancy visibility
+- No structured owner-side management
+- Revenue tracking difficulties
+- Limited real-time monitoring
+
+SmartPark solves these challenges through a centralized intelligent digital parking ecosystem.
+
+---
+
+# 🎯 Project Objectives
+
+SmartPark is designed to:
+
+- simplify parking discovery
+- enable secure online parking reservations
+- prevent slot overbooking
+- provide owner dashboard management
+- deliver platform-wide administrative control
+- support payment-enabled booking workflows
+- provide analytics-driven decision making
+- improve parking space utilization
+
+---
+
+# ✨ Core Features
+
+# 👤 Driver / User Features
+
+- User registration & secure authentication
+- Email/password login
+- Google authentication
+- Role-based access
+- Discover parking spaces
+- Search by location
+- Smart filtering
+- Parking details page
+- Time-based reservation booking
 - Multi-slot reservation support
 - Razorpay payment integration
-- Booking confirmation workflow
+- Booking confirmation
 - Booking cancellation
-- Real-time notification system
 - Booking history
-- Driver spending analytics
-- Responsive UI
+- Spending analytics
+- Notification center
+- Responsive UI experience
 
 ---
 
-## 🏢 Parking Owner Features
+# 🏢 Parking Owner Features
 
-- Owner dashboard
-- Create parking listings
-- Edit / update parking details
+- Owner authentication
+- Dedicated owner dashboard
+- Add parking spaces
+- Edit parking details
 - Delete parking listings
-- View reservations
-- Reservation management
-- Manual booking completion
-- Automatic reservation completion after booking expiry
+- Manage reservations
 - Occupancy monitoring
-- Reserved slot tracking
 - Available slot tracking
-- Earnings analytics
-- Revenue dashboard
-- Peak booking analytics
-- Notification alerts
-- Performance insights
+- Reserved slot tracking
+- Booking completion management
+- Revenue analytics
+- Earnings dashboard
+- Booking performance insights
+- Notification management
 
 ---
 
-## 🛡️ Admin Features
+# 🛡️ Admin Features
 
 - Admin authentication
-- Admin dashboard
-- Platform-wide analytics
+- Centralized admin dashboard
 - User management
 - Parking owner management
 - Parking approval/moderation
 - Booking oversight
-- Revenue monitoring
+- Platform analytics
 - Occupancy monitoring
-- Reservation tracking
+- Revenue insights
 - Notification monitoring
-- Full platform visibility
+- System-level visibility
 
 ---
 
-# 🧠 Core Business Logic
+# 🧠 Business Logic Highlights
 
----
+## Smart Slot Availability Logic
 
-## Slot Reservation Logic
-
-SmartPark uses **reservation-aware slot management**.
+SmartPark prevents inaccurate slot counts using reservation-aware occupancy tracking.
 
 Formula:
 
 ```text
-Available Slots = Total Slots - Reserved Active Slots
+Available Slots = Total Slots - Active Reserved Slots
 ```
 
-Where reserved slots include:
+Included reservations:
 
-- confirmed bookings
-- active bookings
-- ongoing bookings
+✅ confirmed bookings  
+✅ active reservations  
+✅ ongoing bookings
 
-Excluded:
+Excluded reservations:
 
-- cancelled bookings
-- completed bookings
-- failed payments
-- expired bookings
-- refunded bookings
+❌ cancelled bookings  
+❌ completed bookings  
+❌ failed payments  
+❌ expired bookings  
+❌ refunded bookings
 
 ---
 
 ## Booking Lifecycle
 
 ```text
-Booking Created
-   ↓
-Payment Successful
-   ↓
-Booking Confirmed
-   ↓
-Reservation Active
-   ↓
+User selects parking
+      ↓
+Chooses date/time
+      ↓
+Creates reservation
+      ↓
+Payment initiated
+      ↓
+Payment verification
+      ↓
+Booking confirmed
+      ↓
+Active reservation
+      ↓
 Completed / Cancelled
 ```
 
@@ -132,65 +177,44 @@ Completed / Cancelled
 
 ## Revenue Rules
 
-### Driver Spending
-
-Includes:
+### Driver Spending Includes
 
 ✅ successful paid bookings
 
-Excludes:
+### Driver Spending Excludes
 
 ❌ cancelled bookings  
-❌ failed bookings  
-❌ expired bookings  
+❌ failed payments  
+❌ expired reservations  
 
 ---
 
-### Owner Earnings
-
-Includes:
+### Owner Earnings Include
 
 ✅ completed successful bookings
 
-Excludes:
+### Owner Earnings Exclude
 
 ❌ cancelled bookings  
 ❌ pending bookings  
-❌ failed bookings  
-
----
-
-## Notification Workflow
-
-Notifications are triggered for:
-
-- booking creation
-- booking cancellation
-- booking completion
-- owner reservation events
-- admin monitoring events
-
-Recipients:
-
-- User
-- Parking Owner
-- Admin
+❌ failed payments  
 
 ---
 
 # 🏗️ System Architecture
 
 ```text
-Frontend (React)
-    ↓
-REST API (Express.js)
-    ↓
-Business Logic Layer (Services)
-    ↓
+Frontend (React + Tailwind)
+        ↓
+REST API Layer (Express.js)
+        ↓
+Business Logic Layer
+        ↓
 MongoDB Database
-    ↓
-External Services
+        ↓
+External Integrations
    ├── Razorpay Payments
+   ├── Google Authentication
    └── Notification System
 ```
 
@@ -201,10 +225,11 @@ External Services
 ## Frontend
 
 - React.js
+- Vite
 - Tailwind CSS
-- React Router
+- React Router DOM
 - Axios
-- Chart.js / analytics libraries
+- Chart libraries
 - Toast notifications
 
 ---
@@ -218,44 +243,55 @@ External Services
 
 ---
 
-## Authentication
+## Authentication & Security
 
 - JWT Authentication
 - Role-Based Access Control (RBAC)
-
-Roles:
-
-- Driver
-- Owner
-- Admin
+- Helmet
+- Rate Limiting
+- XSS Protection
+- Mongo Sanitization
+- Secure CORS Configuration
 
 ---
 
 ## Payments
 
 - Razorpay Payment Gateway
-
-Features:
-
-- secure payment verification
-- booking-payment synchronization
-- idempotent payment handling
+- Payment verification workflow
+- Transaction synchronization
 
 ---
 
-## Notifications
+## Deployment
 
-- In-app notifications
-- Event-driven alerts
+### Frontend
+- Vercel
+
+### Backend
+- Render
+
+### Database
+- MongoDB Atlas
 
 ---
 
-## Analytics
+# 👥 Role-Based Access Matrix
 
-- Revenue analytics
-- Occupancy analytics
-- Reservation insights
-- Dashboard metrics
+| Feature | User | Owner | Admin |
+|-------|------|------|-------|
+| Register/Login | ✅ | ✅ | ✅ |
+| Search Parking | ✅ | ❌ | ❌ |
+| Book Parking | ✅ | ❌ | ❌ |
+| Cancel Booking | ✅ | ❌ | ❌ |
+| Booking History | ✅ | ✅ | ✅ |
+| Add Parking | ❌ | ✅ | ❌ |
+| Edit Parking | ❌ | ✅ | ❌ |
+| Delete Parking | ❌ | ✅ | ❌ |
+| Occupancy Monitoring | ❌ | ✅ | ✅ |
+| Revenue Analytics | ❌ | ✅ | ✅ |
+| User Management | ❌ | ❌ | ✅ |
+| Parking Moderation | ❌ | ❌ | ✅ |
 
 ---
 
@@ -267,26 +303,30 @@ SmartPark/
 ├── client/
 │   ├── src/
 │   │   ├── app/
+│   │   ├── assets/
 │   │   ├── components/
 │   │   ├── features/
 │   │   ├── pages/
 │   │   ├── services/
+│   │   ├── hooks/
 │   │   └── utils/
 │   │
 │   └── package.json
 │
 ├── server/
 │   ├── src/
+│   │   ├── config/
 │   │   ├── controllers/
+│   │   ├── middleware/
 │   │   ├── models/
 │   │   ├── routes/
 │   │   ├── services/
-│   │   ├── middleware/
 │   │   ├── utils/
-│   │   └── config/
+│   │   └── app.js
 │   │
 │   └── package.json
 │
+├── docs/
 ├── README.md
 └── .gitignore
 ```
@@ -295,86 +335,90 @@ SmartPark/
 
 # 🔌 API Modules
 
-Backend APIs include:
+## Authentication APIs
 
-## Authentication
-
-- signup
-- login
-- logout
-- token validation
-- role authorization
+```text
+POST   /api/auth/register
+POST   /api/auth/login
+POST   /api/auth/google
+GET    /api/auth/me
+```
 
 ---
 
 ## Parking APIs
 
-- create parking
-- update parking
-- delete parking
-- list public parking
-- nearby parking
-- parking details
-- approvals
+```text
+GET    /api/parkings
+GET    /api/parkings/:id
+POST   /api/parkings
+PUT    /api/parkings/:id
+DELETE /api/parkings/:id
+```
 
 ---
 
 ## Booking APIs
 
-- create booking
-- cancel booking
-- complete booking
-- booking history
-- booking tracking
+```text
+POST   /api/bookings
+GET    /api/bookings
+PATCH  /api/bookings/:id/cancel
+PATCH  /api/bookings/:id/complete
+```
 
 ---
 
 ## Payment APIs
 
-- create payment order
-- verify payment
-- payment confirmation
+```text
+POST   /api/payments/create-order
+POST   /api/payments/verify
+POST   /api/payments/webhook
+```
 
 ---
 
 ## Owner APIs
 
-- dashboard metrics
-- reservations
-- analytics
-- occupancy
+```text
+GET    /api/owner/dashboard
+GET    /api/owner/bookings
+GET    /api/owner/analytics
+```
 
 ---
 
 ## Admin APIs
 
-- dashboard analytics
-- user management
-- owner management
-- parking moderation
-- booking monitoring
+```text
+GET    /api/admin/dashboard
+GET    /api/admin/users
+GET    /api/admin/owners
+GET    /api/admin/bookings
+```
 
 ---
 
-# ⚙️ Installation Guide
+# ⚙️ Local Installation
 
 ## Clone Repository
 
 ```bash
-git clone https://github.com/pankaj-devx/SmartPark.git
+git clone https://github.com/pankaj0160/SmartPark.git
 cd SmartPark
 ```
 
 ---
 
-## Backend Setup
+# Backend Setup
 
 ```bash
 cd server
 npm install
 ```
 
-Create environment file:
+Create:
 
 ```bash
 server/.env
@@ -384,11 +428,13 @@ Example:
 
 ```env
 PORT=5000
-MONGODB_URI=your_mongodb_connection
+NODE_ENV=development
+MONGODB_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
 RAZORPAY_KEY_ID=your_key
 RAZORPAY_KEY_SECRET=your_secret
-CLIENT_URL=http://localhost:5173
+CLIENT_URLS=http://localhost:5173,http://127.0.0.1:5173
+GOOGLE_CLIENT_ID=your_google_client_id
 ```
 
 Run backend:
@@ -399,14 +445,14 @@ npm run dev
 
 ---
 
-## Frontend Setup
+# Frontend Setup
 
 ```bash
 cd client
 npm install
 ```
 
-Create environment file:
+Create:
 
 ```bash
 client/.env
@@ -416,7 +462,8 @@ Example:
 
 ```env
 VITE_API_BASE_URL=http://localhost:5000/api
-VITE_RAZORPAY_KEY=your_public_key
+VITE_RAZORPAY_KEY_ID=your_public_key
+VITE_GOOGLE_CLIENT_ID=your_google_client_id
 ```
 
 Run frontend:
@@ -427,71 +474,115 @@ npm run dev
 
 ---
 
-# 🧪 Testing Guide
-
-Test major workflows:
-
----
+# 🧪 Testing Checklist
 
 ## Driver Flow
 
-- signup/login
-- search parking
-- booking
-- payment
-- cancellation
-- booking history
+- User registration
+- Login
+- Google authentication
+- Search parking
+- View details
+- Create booking
+- Payment success flow
+- Payment failure flow
+- Cancel booking
+- Booking history
 
 ---
 
 ## Owner Flow
 
-- create parking
-- reservation monitoring
-- analytics
-- occupancy updates
-- booking completion
+- Owner login
+- Add parking
+- Edit parking
+- Delete parking
+- Occupancy tracking
+- Booking monitoring
+- Analytics review
 
 ---
 
 ## Admin Flow
 
-- moderation
-- analytics
-- monitoring
-- approvals
+- Admin login
+- Dashboard monitoring
+- User management
+- Owner moderation
+- Booking oversight
 
 ---
 
 ## Critical Business Tests
 
-- slot availability consistency
-- cancellation updates
-- booking completion updates
-- payment consistency
-- notification delivery
-
+- double booking prevention
+- slot count consistency
+- cancellation synchronization
+- payment verification integrity
+- booking lifecycle transitions
+- occupancy updates
+- authorization enforcement
 
 ---
 
-# 🚀 Deployment
+# 🔐 Security Features
 
-SmartPark can be deployed using:
+Implemented security protections:
+
+- JWT authentication
+- Protected API routes
+- Role-based authorization
+- Helmet security headers
+- Rate limiting
+- Mongo injection sanitization
+- XSS request cleaning
+- Secure CORS origin validation
+- Payment verification checks
+
+---
+
+# 🚀 Deployment Architecture
 
 Frontend:
 
-- Vercel
-- Netlify
+```text
+Vercel
+```
 
 Backend:
 
-- Render
-- Railway
-- VPS
+```text
+Render
+```
 
 Database:
 
-- MongoDB Atlas
+```text
+MongoDB Atlas
+```
+
+Production URLs:
+
+Frontend:
+https://smart-park-client.vercel.app
+
+Backend:
+https://smartpark-1-sg1y.onrender.com
+
+---
+
+# 📈 Challenges Solved
+
+Key engineering challenges addressed:
+
+- CORS production deployment issues
+- route mismatch debugging
+- frontend/backend deployment synchronization
+- payment verification handling
+- occupancy consistency logic
+- booking conflict prevention
+- environment variable management
+- authentication workflow debugging
 
 ---
 
@@ -499,15 +590,28 @@ Database:
 
 Planned improvements:
 
-- Live map parking visualization
-- AI parking demand prediction
+- Live parking map visualization
+- AI parking recommendations
 - Dynamic pricing engine
-- Vehicle OCR entry detection
-- Parking recommendation engine
-- Slot reservation heatmaps
+- Demand heatmaps
+- Predictive availability analytics
+- QR-based parking entry
 - Push notifications
-- Email notifications
-- Multi-city scaling
+- Email notification workflows
+- OCR vehicle recognition
+- Multi-city scalability
+
+---
+
+# 👨‍💻 Author
+
+## Pankaj Thakur
+
+B.Tech — Artificial Intelligence & Data Science  
+Full Stack Developer | Problem Solver | Tech Enthusiast
+
+GitHub:
+https://github.com/pankaj0160
 
 ---
 
@@ -518,22 +622,22 @@ Contributions are welcome.
 Steps:
 
 ```bash
-fork repository
-create feature branch
-commit changes
-push branch
-create pull request
+Fork repository
+Create feature branch
+Commit changes
+Push branch
+Create Pull Request
 ```
 
 ---
 
-# 👨‍💻 Author
+# ⭐ Support
 
-**Pankaj**  
-B.Tech — Artificial Intelligence & Data Science  
-Full Stack Developer | Problem Solver | Tech Learner
+If you found this project useful:
 
-GitHub: https://github.com/pankaj-devx
+⭐ Star this repository  
+🍴 Fork the project  
+💡 Share feedback  
 
 ---
 
@@ -543,10 +647,8 @@ This project is licensed under the MIT License.
 
 ---
 
-# ⭐ Support
+<div align="center">
 
-If you found this project useful:
+### Built with passion for solving real-world parking challenges 🚗
 
-⭐ Star the repository  
-🍴 Fork the project  
-💡 Share feedback
+</div>
