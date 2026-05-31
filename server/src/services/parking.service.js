@@ -83,7 +83,7 @@ export function serializeParking(parking) {
     hourlyPrice: parking.hourlyPrice,
     // pricing is a Mongoose Map — convert to a plain object for JSON serialization.
     // Undefined when not set (old listings) — clients fall back to hourlyPrice.
-    pricing: parking.pricing ? Object.fromEntries(parking.pricing) : undefined,
+    pricing: normalizePricingForJson(parking.pricing),
     amenities: parking.amenities,
     parkingType: parking.parkingType ?? 'lot',
     isOpen24x7: parking.isOpen24x7 ?? true,
@@ -766,6 +766,26 @@ function syncParkingImageSummary(parking) {
     publicId: primaryImage.publicId,
     caption: primaryImage.caption ?? ''
   };
+}
+
+function normalizePricingForJson(pricing) {
+  if (!pricing) {
+    return undefined;
+  }
+
+  if (pricing instanceof Map) {
+    return Object.fromEntries(pricing.entries());
+  }
+
+  if (typeof pricing.toObject === 'function') {
+    return pricing.toObject();
+  }
+
+  if (typeof pricing === 'object' && !Array.isArray(pricing)) {
+    return { ...pricing };
+  }
+
+  return undefined;
 }
 
 function applyRanking(parkings, query = {}) {

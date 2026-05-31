@@ -12,6 +12,7 @@ import {
   listPublicParkings,
   removeParkingImage,
   rejectParking,
+  serializeParking,
   setPrimaryParkingImage,
   toggleParkingActive,
   updateParking
@@ -64,6 +65,15 @@ test('owner create listing returns serialized pending parking', async () => {
   assert.equal(parking.availableSlots, 10);
 });
 
+test('serializeParking supports plain-object pricing from owner create flow', () => {
+  const parking = serializeParking(makeParking({
+    ...buildParkingCreatePayload(validInput, ownerId),
+    pricing: { '2-wheeler': 30, '4-wheeler': 60 }
+  }));
+
+  assert.deepEqual(parking.pricing, { '2-wheeler': 30, '4-wheeler': 60 });
+});
+
 test('buildPublicParkingFilter exposes only approved and active listings', () => {
   const filter = buildPublicParkingFilter({
     search: 'station',
@@ -81,7 +91,7 @@ test('buildPublicParkingFilter exposes only approved and active listings', () =>
   assert.deepEqual(filter.$text, { $search: 'station' });
   assert.equal(filter.vehicleTypes, '4-wheeler');
   assert.deepEqual(filter.amenities, { $all: ['covered', 'cctv'] });
-  assert.deepEqual(filter.availableSlots, { $gt: 0 });
+  assert.equal(filter.availableSlots, undefined);
   assert.equal(filter.parkingType, 'covered');
   assert.deepEqual(filter.hourlyPrice, { $gte: 20, $lte: 100 });
 });
@@ -121,7 +131,7 @@ test('time-range queries do not apply stale availableSlots pre-filter', () => {
 
 test('buildParkingSort supports discovery sorting modes', () => {
   assert.deepEqual(buildParkingSort('cheapest'), { hourlyPrice: 1, _id: 1 });
-  assert.deepEqual(buildParkingSort('highest_availability'), { availableSlots: -1, _id: 1 });
+  assert.deepEqual(buildParkingSort('highest_availability'), { createdAt: -1, _id: 1 });
 });
 
 test('public list returns only approved listing query results', async () => {
@@ -716,6 +726,7 @@ function makeParking(overrides = {}) {
     availableSlots: overrides.availableSlots,
     vehicleTypes: overrides.vehicleTypes,
     hourlyPrice: overrides.hourlyPrice,
+    pricing: overrides.pricing,
     amenities: overrides.amenities,
     parkingType: overrides.parkingType ?? 'lot',
     isOpen24x7: overrides.isOpen24x7 ?? true,

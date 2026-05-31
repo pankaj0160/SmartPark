@@ -97,27 +97,14 @@ export function MapPage() {
     setError('');
     setIsLoading(true);
 
-    // Expand radius automatically if no results — max 2 retries, deduped
-    const radiiToTry = [km, 10, 20].filter((r, i, arr) => arr.indexOf(r) === i);
-
     try {
-      let results = [];
-      let usedRadius = km;
-
-      for (const radius of radiiToTry) {
-        results = await getNearbyParking(lat, lng, radius);
-        // Discard if a newer request has already started
-        if (requestId !== nearbyRequestId.current) return;
-        usedRadius = radius;
-        if (results.length > 0) break;
-      }
+      const results = await getNearbyParking(lat, lng, km);
+      if (requestId !== nearbyRequestId.current) return;
 
       setParkings(results);
 
       if (results.length === 0) {
-        setError(`No approved parking found within ${radiiToTry.at(-1)} km. Try a different location.`);
-      } else if (usedRadius > km) {
-        setError(`No parking within ${km} km. Showing results within ${usedRadius} km.`);
+        setError(`No approved parking found within ${km} km. Try a different location or increase the radius.`);
       }
     } catch (apiError) {
       if (requestId !== nearbyRequestId.current) return;
