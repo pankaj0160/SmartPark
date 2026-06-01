@@ -30,6 +30,10 @@ https://smartpark-1-sg1y.onrender.com
 ### GitHub Repository
 https://github.com/pankaj0160/SmartPark
 
+
+<img width="1838" height="906" alt="image" src="https://github.com/user-attachments/assets/f9ddfac6-6b03-468a-9fbd-8fe298012c9b" />
+<img width="1808" height="918" alt="image" src="https://github.com/user-attachments/assets/1360a53f-bdd1-4c0d-94ff-4cf80b8dbfe8" />
+
 ---
 
 # 📌 Problem Statement
