@@ -1,21 +1,39 @@
-# 🚗 SmartPark — Intelligent Smart Parking Management Platform
 
-<div align="center">
 
-![React](https://img.shields.io/badge/Frontend-React-blue?style=for-the-badge&logo=react)
-![Node.js](https://img.shields.io/badge/Backend-Node.js-green?style=for-the-badge&logo=node.js)
-![Express](https://img.shields.io/badge/API-Express-black?style=for-the-badge&logo=express)
-![MongoDB](https://img.shields.io/badge/Database-MongoDB-green?style=for-the-badge&logo=mongodb)
-![JWT](https://img.shields.io/badge/Auth-JWT-orange?style=for-the-badge)
-![Razorpay](https://img.shields.io/badge/Payments-Razorpay-blue?style=for-the-badge)
-![Vercel](https://img.shields.io/badge/Frontend%20Deploy-Vercel-black?style=for-the-badge&logo=vercel)
-![Render](https://img.shields.io/badge/Backend%20Deploy-Render-purple?style=for-the-badge)
+```
+███████╗███╗   ███╗ █████╗ ██████╗ ████████╗██████╗  █████╗ ██████╗ ██╗  ██╗
+██╔════╝████╗ ████║██╔══██╗██╔══██╗╚══██╔══╝██╔══██╗██╔══██╗██╔══██╗██║ ██╔╝
+███████╗██╔████╔██║███████║██████╔╝   ██║   ██████╔╝███████║██████╔╝█████╔╝ 
+╚════██║██║╚██╔╝██║██╔══██║██╔══██╗   ██║   ██╔═══╝ ██╔══██║██╔══██╗██╔═██╗ 
+███████║██║ ╚═╝ ██║██║  ██║██║  ██║   ██║   ██║     ██║  ██║██║  ██║██║  ██╗
+╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝
+```
 
-### Smart Parking Slot Rental & Availability Platform
+### Intelligent Parking Discovery & Booking Platform for India
 
-A full-stack intelligent parking reservation platform that helps users discover, reserve, and manage parking spaces efficiently.
+*Find · Book · Navigate · Pay — all in one place*
+
+<br/>
+
+[![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
+[![MongoDB](https://img.shields.io/badge/MongoDB-6+-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://mongodb.com)
+[![Express](https://img.shields.io/badge/Express-5.x-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com)
+
+[![Socket.io](https://img.shields.io/badge/Socket.io-Real--time-010101?style=for-the-badge&logo=socket.io&logoColor=white)](https://socket.io)
+[![Razorpay](https://img.shields.io/badge/Razorpay-Payments-3395FF?style=for-the-badge&logo=razorpay&logoColor=white)](https://razorpay.com)
+[![Claude AI](https://img.shields.io/badge/Claude_AI-Assistant-CC785C?style=for-the-badge&logo=anthropic&logoColor=white)](https://anthropic.com)
+[![License](https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge)](LICENSE)
+
+<br/>
+
+[**📖 Setup Guide**](#-quick-start) · [**🔌 API Reference**](#-api-reference) · [**🤖 AI Features**](#-ai-assistant) · [**🐛 Report Bug**](../../issues)
+
+<br/>
 
 </div>
+
+
 
 ---
 
@@ -36,620 +54,697 @@ https://github.com/pankaj0160/SmartPark
 
 ---
 
-# 📌 Problem Statement
+<div align="center">
 
-Urban parking management is inefficient, frustrating, and often chaotic.
+<br/>
 
-Common real-world problems include:
-
-- Drivers wasting time searching for parking
-- Manual parking allocation systems
-- Overbooking and reservation conflicts
-- Lack of centralized parking discovery
-- Poor occupancy visibility
-- No structured owner-side management
-- Revenue tracking difficulties
-- Limited real-time monitoring
-
-SmartPark solves these challenges through a centralized intelligent digital parking ecosystem.
 
 ---
 
-# 🎯 Project Objectives
+## 📋 Table of Contents
 
-SmartPark is designed to:
-
-- simplify parking discovery
-- enable secure online parking reservations
-- prevent slot overbooking
-- provide owner dashboard management
-- deliver platform-wide administrative control
-- support payment-enabled booking workflows
-- provide analytics-driven decision making
-- improve parking space utilization
-
----
-
-# ✨ Core Features
-
-# 👤 Driver / User Features
-
-- User registration & secure authentication
-- Email/password login
-- Google authentication
-- Role-based access
-- Discover parking spaces
-- Search by location
-- Smart filtering
-- Parking details page
-- Time-based reservation booking
-- Multi-slot reservation support
-- Razorpay payment integration
-- Booking confirmation
-- Booking cancellation
-- Booking history
-- Spending analytics
-- Notification center
-- Responsive UI experience
+- [🌟 Overview](#-overview)
+- [✨ Features](#-features)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [🏗️ Architecture](#️-architecture)
+- [📁 Project Structure](#-project-structure)
+- [🚀 Quick Start](#-quick-start)
+- [⚙️ Environment Variables](#️-environment-variables)
+- [🔌 API Reference](#-api-reference)
+- [🤖 AI Assistant](#-ai-assistant)
+- [🗃️ Database Schema](#️-database-schema)
+- [🧪 Testing](#-testing)
+- [🚢 Deployment](#-deployment)
+- [🗺️ Roadmap](#️-roadmap)
 
 ---
 
-# 🏢 Parking Owner Features
+## 🌟 Overview
 
-- Owner authentication
-- Dedicated owner dashboard
-- Add parking spaces
-- Edit parking details
-- Delete parking listings
-- Manage reservations
-- Occupancy monitoring
-- Available slot tracking
-- Reserved slot tracking
-- Booking completion management
-- Revenue analytics
-- Earnings dashboard
-- Booking performance insights
-- Notification management
+**SmartPark** solves one of urban India's daily frustrations — wasted time circling for parking with zero information about availability, pricing, or distance. It connects **drivers** who need parking with **owners** who have underutilised lots, through a real-time platform built specifically for the Indian market (IST timezone, Razorpay payments, ₹ pricing, Indian city geography).
 
----
-
-# 🛡️ Admin Features
-
-- Admin authentication
-- Centralized admin dashboard
-- User management
-- Parking owner management
-- Parking approval/moderation
-- Booking oversight
-- Platform analytics
-- Occupancy monitoring
-- Revenue insights
-- Notification monitoring
-- System-level visibility
-
----
-
-# 🧠 Business Logic Highlights
-
-## Smart Slot Availability Logic
-
-SmartPark prevents inaccurate slot counts using reservation-aware occupancy tracking.
-
-Formula:
-
-```text
-Available Slots = Total Slots - Active Reserved Slots
+```
+                        ┌─────────────────────────────┐
+  🚗 Driver             │         SmartPark            │          🏢 Owner
+  ─────────             │                              │          ───────
+  Search nearby    ───► │  Geo query ($geoNear)        │
+  Get ranked list  ◄─── │  AI ranking (50/30/20)       │
+  Book a slot      ───► │  ACID transaction + lock     │ ───► Booking notification
+  Pay via Razorpay ───► │  Webhook HMAC verification   │ ───► Revenue analytics
+  Navigate to lot  ───► │  OSRM turn-by-turn routing   │
+  Chat with AI     ───► │  Claude Haiku function call  │
+                        └─────────────────────────────┘
 ```
 
-Included reservations:
+### Who Is It For?
 
-✅ confirmed bookings  
-✅ active reservations  
-✅ ongoing bookings
-
-Excluded reservations:
-
-❌ cancelled bookings  
-❌ completed bookings  
-❌ failed payments  
-❌ expired bookings  
-❌ refunded bookings
+| 🚗 Driver | 🏢 Owner | 👑 Admin |
+|:---:|:---:|:---:|
+| Discover & book parking | List and manage lots | Verify listings |
+| Real-time slot counts | Revenue dashboard | Manage users |
+| Turn-by-turn navigation | Booking notifications | Oversee platform |
+| Pay via UPI / cards | Set pricing per vehicle | Handle disputes |
+| AI-powered search | Analytics & peak hours | Full oversight |
 
 ---
 
-## Booking Lifecycle
+## ✨ Features
 
-```text
-User selects parking
-      ↓
-Chooses date/time
-      ↓
-Creates reservation
-      ↓
-Payment initiated
-      ↓
-Payment verification
-      ↓
-Booking confirmed
-      ↓
-Active reservation
-      ↓
-Completed / Cancelled
-```
+### 🔍 Smart Discovery
+- **Geo-spatial search** — MongoDB `$geoNear` pipeline with 2dsphere index finds parking within a configurable radius
+- **AI ranking algorithm** — weighted scoring: distance (50%) + price (30%) + availability (20%) — lower score = better result
+- **Smart badges** — top result gets *Best Choice*, closest gets *Nearest*, cheapest gets *Best Price*
+- **Interactive Leaflet map** — real-time markers, colour-coded by badge, with route drawing
+- **Text search** — search by parking name, city, area, or amenities
 
----
+### 📅 Booking Engine
+- **Concurrency-safe bookings** — MongoDB transactions with pessimistic document locking prevent any double-bookings
+- **Live availability** — slot counts computed from real booking data on every request — never a stale cache
+- **IST-aware logic** — all date/time operations use India Standard Time wall-clock semantics (no UTC conversion bugs)
+- **30-minute lead time** — bookings must start at least 30 minutes in the future
+- **Booking codes** — cryptographically secure unique codes (`BOOK-A9F3K2D1`) via `crypto.randomBytes()`
 
-## Revenue Rules
+### 💳 Payment System
+- **Razorpay integration** — UPI, net banking, credit/debit cards, wallets
+- **Webhook-first confirmation** — HMAC-SHA256 verified server callback is the authoritative payment signal
+- **Timing-safe comparison** — `crypto.timingSafeEqual()` prevents timing attacks on webhook signatures
+- **Coupon system** — percentage and flat-rate discounts with usage limits
+- **Automated refund flow** — cancellation triggers the Razorpay refund API
 
-### Driver Spending Includes
+### 🤖 AI Assistant *(New)*
+- **Claude Haiku** with LLM function calling — understands natural language like *"covered parking near Bandra under ₹40/hr"*
+- **Agentic tool loop** — model autonomously calls `searchParkings` and `checkAvailability` tools against your live data
+- **Inline result cards** — AI response renders real parking cards with prices, ratings, amenities, and booking links
+- **Multi-turn conversation** — full session context maintained across the conversation
 
-✅ successful paid bookings
+### 📡 Real-Time Events
+- **Socket.io broadcasts** — slot availability updates sent to all connected clients the moment a booking is created
+- **Per-user targeting** — `userId → Set<socketId>` map supports targeted notifications even across multiple tabs
+- **Persistent notifications** — bell badge with unread count, read/unread state saved to DB
 
-### Driver Spending Excludes
+### 📊 Analytics (Owner Dashboard)
+- Revenue trends over time with Recharts
+- Peak hour heatmap — see when your lot is busiest
+- Utilisation rate by vehicle type
+- Booking volume and average duration
 
-❌ cancelled bookings  
-❌ failed payments  
-❌ expired reservations  
-
----
-
-### Owner Earnings Include
-
-✅ completed successful bookings
-
-### Owner Earnings Exclude
-
-❌ cancelled bookings  
-❌ pending bookings  
-❌ failed payments  
-
----
-
-# 🏗️ System Architecture
-
-```text
-Frontend (React + Tailwind)
-        ↓
-REST API Layer (Express.js)
-        ↓
-Business Logic Layer
-        ↓
-MongoDB Database
-        ↓
-External Integrations
-   ├── Razorpay Payments
-   ├── Google Authentication
-   └── Notification System
-```
+### 🔐 Security (8 Layers)
+- JWT (HS256, 7-day expiry) + Google OAuth one-tap login
+- Role-based access control — driver / owner / admin enforced at middleware level
+- `express-mongo-sanitize` — strips `$`, `.` operators from inputs (NoSQL injection prevention)
+- `xss-clean` — sanitises HTML/JS from request bodies (stored XSS prevention)
+- `helmet` — sets 14 security-related HTTP headers (CSP, HSTS, X-Frame-Options…)
+- `bcrypt` (12 rounds) — industry-standard password hashing
+- Rate limiting — 100 req/min on API, 5 req/min on auth endpoints
+- `passwordHash` field has `select: false` — never leaks in queries
 
 ---
 
-# 🛠️ Tech Stack
-
-## Frontend
-
-- React.js
-- Vite
-- Tailwind CSS
-- React Router DOM
-- Axios
-- Chart libraries
-- Toast notifications
-
----
-
-## Backend
-
-- Node.js
-- Express.js
-- MongoDB
-- Mongoose
-
----
-
-## Authentication & Security
-
-- JWT Authentication
-- Role-Based Access Control (RBAC)
-- Helmet
-- Rate Limiting
-- XSS Protection
-- Mongo Sanitization
-- Secure CORS Configuration
-
----
-
-## Payments
-
-- Razorpay Payment Gateway
-- Payment verification workflow
-- Transaction synchronization
-
----
-
-## Deployment
-
-### Frontend
-- Vercel
+## 🛠️ Tech Stack
 
 ### Backend
-- Render
 
-### Database
-- MongoDB Atlas
+| Technology | Version | Why It Was Chosen |
+|---|:---:|---|
+| **Node.js** | 18+ | Async I/O matches search workload; large ecosystem |
+| **Express** | 5.x | Built-in async error propagation — no try/catch wrappers per route |
+| **MongoDB** | 6+ | Native `$geoNear` + 2dsphere; flexible schema for variable listing fields |
+| **Mongoose** | 9.x | Schema validation, middleware hooks, compound index definitions |
+| **Socket.io** | 4.8 | Shares same HTTP port; room-free targeted emit via `userSocketMap` |
+| **Razorpay** | 2.9 | India's leading gateway — UPI, net banking, HMAC webhook |
+| **Cloudinary** | 2.x | Auto-transformation CDN; no files touch the server disk |
+| **Zod** | 4.x | Runtime schema validation with per-field error paths |
+| **JWT** | 9.x | Stateless auth — no session store needed at current scale |
+| **@anthropic-ai/sdk** | latest | Claude Haiku function calling for the AI assistant |
+| **bcryptjs** | 3.x | 12-round bcrypt — production-standard password hashing |
+| **helmet** | 8.x | One-line, 14 HTTP security headers |
+
+### Frontend
+
+| Technology | Version | Why It Was Chosen |
+|---|:---:|---|
+| **React** | 19 | Concurrent features reduce booking UI jank |
+| **Vite** | 7.x | Sub-second HMR; ES module-native build |
+| **React Router** | 7.x | Nested layouts + role-gated sub-routes |
+| **Tailwind CSS** | 3.x | Utility-first; CSS variables power light/dark theming |
+| **Leaflet + React-Leaflet** | 1.9 | Open-source, no API key; excellent GeoJSON support |
+| **Recharts** | 3.x | Composable chart primitives for owner analytics |
+| **Axios** | 1.x | Interceptors for auth headers; consistent error shape |
+| **Socket.io-client** | 4.8 | Matches server version; auto-reconnect |
+| **Lucide React** | 0.55 | Tree-shakeable icon library |
+| **@react-oauth/google** | 0.12 | Google One Tap login |
 
 ---
 
-# 👥 Role-Based Access Matrix
+## 🏗️ Architecture
 
-| Feature | User | Owner | Admin |
-|-------|------|------|-------|
-| Register/Login | ✅ | ✅ | ✅ |
-| Search Parking | ✅ | ❌ | ❌ |
-| Book Parking | ✅ | ❌ | ❌ |
-| Cancel Booking | ✅ | ❌ | ❌ |
-| Booking History | ✅ | ✅ | ✅ |
-| Add Parking | ❌ | ✅ | ❌ |
-| Edit Parking | ❌ | ✅ | ❌ |
-| Delete Parking | ❌ | ✅ | ❌ |
-| Occupancy Monitoring | ❌ | ✅ | ✅ |
-| Revenue Analytics | ❌ | ✅ | ✅ |
-| User Management | ❌ | ❌ | ✅ |
-| Parking Moderation | ❌ | ❌ | ✅ |
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                           CLIENT  (React 19 SPA)                         │
+│  ┌────────────┐  ┌───────────┐  ┌──────────┐  ┌───────────────────────┐ │
+│  │AuthProvider│  │ Bookings  │  │  Leaflet │  │   AI Chat Widget      │ │
+│  │useAuth()   │  │  Modal    │  │   Map    │  │  Claude Haiku + Tools │ │
+│  └─────┬──────┘  └─────┬─────┘  └─────┬────┘  └──────────┬────────────┘ │
+│  ┌─────┴───────────────┴──────────────┴────────────────────┴───────────┐ │
+│  │           apiClient.js (Axios)        socket.js (Socket.io)         │ │
+│  └──────────────────────────────┬────────────────────────────────────--┘ │
+└─────────────────────────────────┼───────────────────────────────────────┘
+                                  │  HTTP REST + WebSocket
+┌─────────────────────────────────┼───────────────────────────────────────┐
+│                      SERVER  (Node.js + Express 5)                       │
+│  ┌───────────────────────────────────────────────────────────────────┐   │
+│  │  helmet · cors · morgan · mongo-sanitize · xss · rate-limiter    │   │
+│  └───────────────────────────────────────────────────────────────────┘   │
+│  Routes → Controllers → Services → Models                                │
+│  ┌──────────────────┐  ┌───────────────────┐  ┌───────────────────┐     │
+│  │  booking.service │  │ occupancy.service  │  │  parking.service  │     │
+│  │  ACID tx + lock  │  │  overlap agg.      │  │  ranking algo     │     │
+│  └──────────────────┘  └───────────────────┘  └───────────────────┘     │
+│  ┌──────────────────┐  ┌───────────────────┐  ┌───────────────────┐     │
+│  │  payment.service │  │  chat.service      │  │ analytics.service │     │
+│  │  Razorpay+HMAC   │  │  LLM agent loop   │  │  revenue agg.     │     │
+│  └──────────────────┘  └───────────────────┘  └───────────────────┘     │
+└──────────────────────────────────┬──────────────────────────────────────┘
+              ┌─────────────────────┼──────────────────┐
+              ▼                     ▼                   ▼
+         ┌─────────┐         ┌──────────────┐   ┌──────────────┐
+         │ MongoDB │         │   Razorpay   │   │  Claude AI   │
+         │  Atlas  │         │   Webhooks   │   │   (Haiku)    │
+         └─────────┘         └──────────────┘   └──────────────┘
+```
+
+### Key Architectural Decisions
+
+| Decision | Rationale | Trade-off |
+|---|---|---|
+| **MongoDB transactions** | ACID guarantees — zero double-bookings under concurrent load | Requires replica set |
+| **Webhook-first payment** | Server HMAC-SHA256 can't be faked; client callbacks can | ~1–2s pending state in UI |
+| **Live availability** | Slot counts always accurate — no stale data | More DB reads (mitigated by compound index) |
+| **String dates (YYYY-MM-DD)** | No timezone bugs — all logic in IST wall-clock | Manual string comparison for past-booking detection |
+| **Dependency injection** | Every service testable with mock models — no test DB | Slightly more verbose function signatures |
 
 ---
 
-# 📂 Project Structure
+## 📁 Project Structure
 
-```bash
+```
 SmartPark/
-│
-├── client/
-│   ├── src/
-│   │   ├── app/
-│   │   ├── assets/
-│   │   ├── components/
-│   │   ├── features/
-│   │   ├── pages/
-│   │   ├── services/
-│   │   ├── hooks/
-│   │   └── utils/
-│   │
-│   └── package.json
-│
-├── server/
-│   ├── src/
-│   │   ├── config/
-│   │   ├── controllers/
-│   │   ├── middleware/
-│   │   ├── models/
-│   │   ├── routes/
-│   │   ├── services/
-│   │   ├── utils/
-│   │   └── app.js
-│   │
-│   └── package.json
-│
-├── docs/
 ├── README.md
-└── .gitignore
+├── SETUP.md                           ← Quick start guide
+├── .env.example                       ← Template for all env vars
+│
+├── server/                            ← Node.js + Express 5 API
+│   ├── package.json                   ← includes @anthropic-ai/sdk
+│   └── src/
+│       ├── server.js                  ← Entry: DB → seed → HTTP → Socket.io
+│       ├── app.js                     ← Middleware stack + all route mounts
+│       ├── config/
+│       │   ├── db.js                  ← MongoDB connection with retry
+│       │   ├── env.js                 ← Single source for all env vars
+│       │   └── socket.js             ← Socket.io singleton + userSocketMap
+│       ├── middleware/
+│       │   ├── authenticate.js        ← JWT verify + active user → req.user
+│       │   ├── authorizeRoles.js      ← RBAC guard (driver|owner|admin)
+│       │   ├── validateRequest.js     ← Generic Zod schema validator
+│       │   ├── rateLimiter.js         ← apiLimiter + authLimiter
+│       │   ├── uploadParkingImages.js ← Multer → Cloudinary pipeline
+│       │   └── errorHandler.js        ← Central { success, message, errors[] }
+│       ├── models/
+│       │   ├── user.model.js
+│       │   ├── parking.model.js       ← GeoJSON Point, pricing Map
+│       │   ├── booking.model.js       ← Compound index for occupancy queries
+│       │   ├── review.model.js
+│       │   └── notification.model.js
+│       ├── services/
+│       │   ├── booking.service.js     ⭐ ACID tx + pessimistic lock
+│       │   ├── occupancy.service.js   ⭐ Interval-overlap aggregation
+│       │   ├── parking.service.js     ← $geoNear + smart ranking
+│       │   ├── chat.service.js        🤖 LLM agent loop
+│       │   ├── payment.service.js     ← Razorpay + HMAC webhook
+│       │   ├── analytics.service.js   ← Revenue + utilisation aggregations
+│       │   ├── auth.service.js        ← Register, login, Google OAuth
+│       │   └── notification.service.js
+│       ├── controllers/               ← validate → service → respond
+│       ├── routes/                    ← Route + middleware chain
+│       ├── validators/                ← Zod schemas per resource
+│       └── utils/
+│           ├── ranking.js             ← Pure weighted scoring (50/30/20)
+│           ├── codeGenerator.js       ← crypto.randomBytes() booking codes
+│           ├── bookingValidation.js   ← IST-aware business rules
+│           └── asyncHandler.js
+│
+└── client/                            ← React 19 SPA (Vite)
+    └── src/
+        ├── app/
+        │   ├── AppLayout.jsx          ← Global header + ChatWidget mount
+        │   ├── RoleWorkspaceLayout.jsx
+        │   └── navigation.js
+        ├── features/
+        │   ├── auth/                  ← AuthProvider, useAuth, Google OAuth
+        │   ├── bookings/              ← BookingModal, bookingIntent
+        │   ├── chat/                  🤖 ChatWidget, ParkingResultCard, chatApi
+        │   ├── map/                   ← Leaflet, OSRM routing, landmarks
+        │   ├── parkings/              ← Discovery, filters, ParkingForm
+        │   ├── notifications/         ← Bell badge, notification list
+        │   ├── analytics/             ← Owner revenue charts
+        │   ├── owner/                 ← Owner parking management
+        │   ├── admin/                 ← Admin dashboard
+        │   ├── reviews/               ← Rating stars, review forms
+        │   └── theme/                 ← Light/dark CSS variables
+        ├── lib/
+        │   └── apiClient.js           ← Axios + auth token management
+        ├── services/
+        │   └── socket.js              ← Socket.io client singleton
+        └── routes/
+            └── router.jsx             ← React Router v7 + ProtectedRoute
 ```
 
 ---
 
-# 🔌 API Modules
+## 🚀 Quick Start
 
-## Authentication APIs
+### Prerequisites
 
-```text
-POST   /api/auth/register
-POST   /api/auth/login
-POST   /api/auth/google
-GET    /api/auth/me
-```
+- **Node.js 18+** → [nodejs.org](https://nodejs.org)
+- **MongoDB** → [Atlas free tier](https://www.mongodb.com/atlas) *(recommended)* or local with replica set
 
----
+> **`uv` (Python installer)** — listed for future Python AI microservices (demand forecasting). Current project is Node.js only. Install from [astral.sh/uv](https://github.com/astral-sh/uv) when adding Python features.
 
-## Parking APIs
-
-```text
-GET    /api/parkings
-GET    /api/parkings/:id
-POST   /api/parkings
-PUT    /api/parkings/:id
-DELETE /api/parkings/:id
-```
-
----
-
-## Booking APIs
-
-```text
-POST   /api/bookings
-GET    /api/bookings
-PATCH  /api/bookings/:id/cancel
-PATCH  /api/bookings/:id/complete
-```
-
----
-
-## Payment APIs
-
-```text
-POST   /api/payments/create-order
-POST   /api/payments/verify
-POST   /api/payments/webhook
-```
-
----
-
-## Owner APIs
-
-```text
-GET    /api/owner/dashboard
-GET    /api/owner/bookings
-GET    /api/owner/analytics
-```
-
----
-
-## Admin APIs
-
-```text
-GET    /api/admin/dashboard
-GET    /api/admin/users
-GET    /api/admin/owners
-GET    /api/admin/bookings
-```
-
----
-
-# ⚙️ Local Installation
-
-## Clone Repository
+### 1 · Clone
 
 ```bash
 git clone https://github.com/pankaj0160/SmartPark.git
 cd SmartPark
 ```
 
----
-
-# Backend Setup
+### 2 · Environment Variables
 
 ```bash
-cd server
-npm install
+cp .env.example server/.env
+cp .env.example client/.env
 ```
 
-Create:
-
-```bash
-server/.env
-```
-
-Example:
+Edit `server/.env` with your values. Minimum required to start:
 
 ```env
-PORT=5000
-NODE_ENV=development
-MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_secret_key
-RAZORPAY_KEY_ID=your_key
-RAZORPAY_KEY_SECRET=your_secret
-CLIENT_URLS=http://localhost:5173,http://127.0.0.1:5173
-GOOGLE_CLIENT_ID=your_google_client_id
+MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/smartpark
+JWT_SECRET=any_long_random_string_here
 ```
 
-Run backend:
+Everything else (Cloudinary, Razorpay, AI) can be added later — the app runs without them.
+
+### 3 · Install
 
 ```bash
-npm run dev
+cd server && npm install
+cd ../client && npm install
+```
+
+### 4 · Run
+
+```bash
+# Terminal 1 — API (port 5000)
+cd server && npm run dev
+
+# Terminal 2 — React (port 5173)
+cd client && npm run dev
+```
+
+### 5 · Open
+
+```
+http://localhost:5173
+```
+
+The server auto-seeds default parking lots on first start. Look for the **🔵 blue chat bubble** bottom-right — that's the AI assistant.
+
+### Local MongoDB Replica Set *(skip if using Atlas)*
+
+```bash
+mongod --replSet rs0 --dbpath /your/db/path --bind_ip localhost
+mongosh --eval "rs.initiate()"   # run once
 ```
 
 ---
 
-# Frontend Setup
+## ⚙️ Environment Variables
 
-```bash
-cd client
-npm install
+### `server/.env`
+
+```env
+# App
+NODE_ENV=development
+PORT=5000
+
+# Database
+MONGODB_URI=mongodb+srv://<user>:<pass>@cluster.mongodb.net/smartpark
+
+# Auth
+JWT_SECRET=replace_with_32+_char_random_string
+JWT_EXPIRES_IN=7d
+GOOGLE_CLIENT_ID=your_google_oauth_client_id
+
+# CORS
+CLIENT_URL=http://localhost:5173,http://127.0.0.1:5173
+
+# Cloudinary — https://cloudinary.com
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+CLOUDINARY_FOLDER=smartpark/parkings
+
+# Razorpay — https://dashboard.razorpay.com
+RAZORPAY_KEY_ID=rzp_test_xxxxxxxxxxxx
+RAZORPAY_KEY_SECRET=your_key_secret
+RAZORPAY_WEBHOOK_SECRET=your_webhook_secret
+ALLOW_TEST_PAYMENT=true
+TEST_COUPON_CODE=FREE100
+
+# AI Assistant — https://console.anthropic.com
+# Optional: if missing, /api/chat returns 503, all other routes unaffected
+ANTHROPIC_API_KEY=sk-ant-your_key_here
 ```
 
-Create:
-
-```bash
-client/.env
-```
-
-Example:
+### `client/.env`
 
 ```env
 VITE_API_BASE_URL=http://localhost:5000/api
-VITE_RAZORPAY_KEY_ID=your_public_key
-VITE_GOOGLE_CLIENT_ID=your_google_client_id
+VITE_GOOGLE_CLIENT_ID=your_google_oauth_client_id
+VITE_DEBUG_API=false
 ```
 
-Run frontend:
+---
+
+## 🔌 API Reference
+
+### Authentication
+
+| Method | Endpoint | Auth | Description |
+|:---:|---|:---:|---|
+| `POST` | `/api/auth/register` | — | Register with email + password + role |
+| `POST` | `/api/auth/login` | — | Login → returns `{ token, user }` |
+| `POST` | `/api/auth/google` | — | Google OAuth via ID token |
+| `GET` | `/api/auth/me` | 🔒 Bearer | Get current user |
+| `PUT` | `/api/auth/password` | 🔒 Bearer | Change password |
+
+### Parkings
+
+| Method | Endpoint | Auth | Description |
+|:---:|---|:---:|---|
+| `GET` | `/api/parkings` | Optional | List all approved parkings (paginated) |
+| `GET` | `/api/parkings/nearby` | Optional | Geo search: `?lat&lng&radius` |
+| `GET` | `/api/parkings/smart` | Optional | AI-ranked recommendations |
+| `GET` | `/api/parkings/:id` | Optional | Detail + live slot availability |
+| `POST` | `/api/parkings` | 🔒 Owner | Create listing |
+| `PUT` | `/api/parkings/:id` | 🔒 Owner | Update listing |
+| `DELETE` | `/api/parkings/:id` | 🔒 Owner | Delete listing |
+
+### Bookings
+
+| Method | Endpoint | Auth | Description |
+|:---:|---|:---:|---|
+| `POST` | `/api/bookings` | 🔒 Driver | Create booking (ACID + lock) |
+| `GET` | `/api/bookings/my` | 🔒 Driver | My booking history |
+| `GET` | `/api/bookings/:id` | 🔒 Driver | Booking detail |
+| `PUT` | `/api/bookings/:id/cancel` | 🔒 Driver | Cancel + trigger refund |
+
+### Payments
+
+| Method | Endpoint | Auth | Description |
+|:---:|---|:---:|---|
+| `POST` | `/api/payments/orders` | 🔒 Driver | Create Razorpay order |
+| `POST` | `/api/payments/verify` | 🔒 Driver | Client-side verification |
+| `POST` | `/api/payments/webhook` | HMAC | Razorpay server callback (authoritative) |
+
+### AI Chat
+
+| Method | Endpoint | Auth | Description |
+|:---:|---|:---:|---|
+| `POST` | `/api/chat` | Optional | Natural language parking assistant |
+
+```json
+// Request
+{ "messages": [{ "role": "user", "content": "Find covered parking near Bandra under ₹40/hr" }] }
+
+// Response — parking results
+{ "success": true, "data": { "type": "parking_results", "message": "Found 3 options...", "results": [...] } }
+
+// Response — availability
+{ "success": true, "data": { "type": "availability", "message": "4 slots free.", "available": 4 } }
+```
+
+### Other Endpoints
+
+```
+GET    /api/analytics/owner           Owner revenue + utilisation stats
+GET    /api/reviews/parking/:id       Reviews for a parking lot
+POST   /api/reviews                   Submit post-visit review
+GET    /api/notifications             Notification list + unread count
+PUT    /api/notifications/:id/read    Mark as read
+GET    /api/search?q=                 Full-text search
+GET    /api/health                    Server + DB health check
+```
+
+---
+
+## 🤖 AI Assistant
+
+The AI assistant uses **Claude Haiku** with Anthropic's function calling API. It never makes up parking data — it calls your real services.
+
+### How It Works
+
+```
+User: "find covered parking near Andheri under ₹50/hr"
+  │
+  ▼  chat.service.js sends message + tool definitions to Claude Haiku
+  │
+  ▼  model returns: tool_use → searchParkings({ lat, lng, ... })
+  │
+  ▼  executeTool() calls listSmartParkings() from parking.service.js
+  │
+  ▼  real MongoDB results fed back to model
+  │
+  ▼  model generates: { type: "parking_results", message: "...", results: [...] }
+  │
+  ▼  ChatWidget renders inline ParkingResultCard components
+```
+
+### Tools
+
+| Tool | Maps To | When Used |
+|---|---|---|
+| `searchParkings(lat, lng, radiusKm, limit)` | `listSmartParkings()` | User asks to find parking |
+| `checkAvailability(parkingId, date, startTime, endTime)` | `calculateAvailableSlots()` | User asks about a specific time |
+
+### Setup
 
 ```bash
-npm run dev
+# Already in package.json — just install
+cd server && npm install
+
+# Add to server/.env
+ANTHROPIC_API_KEY=sk-ant-your_key_here
 ```
 
----
+Get a free key at [console.anthropic.com](https://console.anthropic.com).
 
-# 🧪 Testing Checklist
-
-## Driver Flow
-
-- User registration
-- Login
-- Google authentication
-- Search parking
-- View details
-- Create booking
-- Payment success flow
-- Payment failure flow
-- Cancel booking
-- Booking history
+> If `ANTHROPIC_API_KEY` is missing, `/api/chat` returns `503`. All other routes work normally.
 
 ---
 
-## Owner Flow
+## 🗃️ Database Schema
 
-- Owner login
-- Add parking
-- Edit parking
-- Delete parking
-- Occupancy tracking
-- Booking monitoring
-- Analytics review
+```
+User          _id, email (unique), role (driver|owner|admin), status
+              passwordHash (select:false), googleId (sparse)
 
----
+Parking       _id, owner → User, title, city, area
+              location { type:"Point", coordinates:[lng,lat] }  ← 2dsphere index
+              hourlyPrice, pricing (Map), amenities[], vehicleTypes[], totalSlots
 
-## Admin Flow
+Booking       _id, bookingCode (unique), user → User, parking → Parking
+              bookingDate (YYYY-MM-DD), startTime (HH:mm), endTime (HH:mm)
+              slotCount, totalAmount, status, paymentStatus, razorpayOrderId
+              ↑ Compound index: (parking, bookingDate, status, startTime, endTime)
 
-- Admin login
-- Dashboard monitoring
-- User management
-- Owner moderation
-- Booking oversight
+Review        _id, user, parking, booking (unique), rating (1-5), comment
 
----
-
-## Critical Business Tests
-
-- double booking prevention
-- slot count consistency
-- cancellation synchronization
-- payment verification integrity
-- booking lifecycle transitions
-- occupancy updates
-- authorization enforcement
-
----
-
-# 🔐 Security Features
-
-Implemented security protections:
-
-- JWT authentication
-- Protected API routes
-- Role-based authorization
-- Helmet security headers
-- Rate limiting
-- Mongo injection sanitization
-- XSS request cleaning
-- Secure CORS origin validation
-- Payment verification checks
-
----
-
-# 🚀 Deployment Architecture
-
-Frontend:
-
-```text
-Vercel
+Notification  _id, userId → User, type, message, isRead
+              ↑ Compound index: (userId, isRead, createdAt)
 ```
 
-Backend:
+### Critical Occupancy Query
 
-```text
-Render
+```javascript
+// Counts booked slots overlapping the requested time window
+// Interval overlap: A.start < B.end  AND  A.end > B.start
+Booking.aggregate([
+  { $match: {
+      parking: parkingId,
+      bookingDate: requestedDate,
+      paymentStatus: 'paid',
+      status: { $ne: 'cancelled' },
+      startTime: { $lt: requestedEndTime },
+      endTime:   { $gt: requestedStartTime }
+  }},
+  { $group: { _id: null, totalSlots: { $sum: '$slotCount' } } }
+])
+// availableSlots = parking.totalSlots - result.totalSlots
 ```
 
-Database:
-
-```text
-MongoDB Atlas
-```
-
-Production URLs:
-
-Frontend:
-https://smart-park-client.vercel.app
-
-Backend:
-https://smartpark-1-sg1y.onrender.com
+The compound index makes this O(log n) regardless of booking history size.
 
 ---
 
-# 📈 Challenges Solved
-
-Key engineering challenges addressed:
-
-- CORS production deployment issues
-- route mismatch debugging
-- frontend/backend deployment synchronization
-- payment verification handling
-- occupancy consistency logic
-- booking conflict prevention
-- environment variable management
-- authentication workflow debugging
-
----
-
-# 🔮 Future Enhancements
-
-Planned improvements:
-
-- Live parking map visualization
-- AI parking recommendations
-- Dynamic pricing engine
-- Demand heatmaps
-- Predictive availability analytics
-- QR-based parking entry
-- Push notifications
-- Email notification workflows
-- OCR vehicle recognition
-- Multi-city scalability
-
----
-
-# 👨‍💻 Author
-
-## Pankaj Thakur
-
-B.Tech — Artificial Intelligence & Data Science  
-Full Stack Developer | Problem Solver | Tech Enthusiast
-
-GitHub:
-https://github.com/pankaj0160
-
----
-
-# 🤝 Contribution
-
-Contributions are welcome.
-
-Steps:
+## 🧪 Testing
 
 ```bash
-Fork repository
-Create feature branch
-Commit changes
-Push branch
-Create Pull Request
+cd server
+
+# Run all tests
+npm test
+
+# Individual suites
+node --test src/tests/concurrency.test.js     # double-booking prevention
+node --test src/services/booking.service.test.js
+node --test src/services/occupancy.service.test.js
+node --test src/tests/e2e.test.js
+```
+
+### Test Coverage
+
+| File | What It Verifies |
+|---|---|
+| `tests/concurrency.test.js` | Two simultaneous bookings for last slot → exactly one succeeds |
+| `services/booking.service.test.js` | ACID flow, overlap detection, code generation |
+| `services/occupancy.service.test.js` | Slot counting with cancelled/pending/paid bookings |
+| `services/payment.service.test.js` | Razorpay order creation, HMAC webhook verification |
+| `services/parking.service.test.js` | Geo search, ranking, availability injection |
+| `services/auth.service.test.js` | Register, login, Google OAuth token flow |
+| `middleware/authorizeRoles.test.js` | Driver blocked from owner routes |
+| `utils/bookingValidation.test.js` | IST lead-time check, date/time format rules |
+
+All services use `deps = {}` dependency injection — tests pass mock models with no real database needed.
+
+---
+
+## 🚢 Deployment
+
+### Production `.env`
+
+```env
+NODE_ENV=production
+MONGODB_URI=mongodb+srv://...atlas...  # replica set required
+JWT_SECRET=<64-char cryptographically random string>
+ALLOW_TEST_PAYMENT=false               # switch to live Razorpay keys
+```
+
+### Recommended Stack
+
+| Layer | Provider |
+|---|---|
+| Database | MongoDB Atlas M10+ |
+| API Server | Railway / Render / AWS EC2 |
+| Frontend | Vercel / Netlify |
+| Images | Cloudinary (already integrated) |
+
+### Docker
+
+```dockerfile
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+COPY src ./src
+EXPOSE 5000
+CMD ["node", "src/server.js"]
+```
+
+### Multi-Instance Socket.io (Redis Adapter)
+
+```bash
+npm install @socket.io/redis-adapter ioredis
+```
+
+```javascript
+// server/src/config/socket.js
+import { createAdapter } from '@socket.io/redis-adapter';
+import { createClient } from 'ioredis';
+const pub = createClient({ url: process.env.REDIS_URL });
+const sub = pub.duplicate();
+io.adapter(createAdapter(pub, sub));
 ```
 
 ---
 
-# ⭐ Support
+## 🗺️ Roadmap
 
-If you found this project useful:
+### ✅ Completed
+- [x] Concurrency-safe booking with ACID transactions
+- [x] Razorpay integration with webhook-first confirmation
+- [x] Real-time slot availability via Socket.io
+- [x] AI parking assistant (Claude Haiku + function calling)
+- [x] Google OAuth + JWT authentication
+- [x] Owner analytics dashboard with Recharts
+- [x] Role-based access control
+- [x] Interactive Leaflet map with OSRM routing
 
-⭐ Star this repository  
-🍴 Fork the project  
-💡 Share feedback  
+### 🔄 Planned
+- [ ] **Demand Forecasting** — Prophet/LSTM model for peak hour prediction + dynamic pricing
+- [ ] **Semantic Search (RAG)** — Pinecone vector embeddings for intent-based search
+- [ ] **Computer Vision** — Auto-tag parking amenities from uploaded images
+- [ ] **SMS Notifications** — Twilio/MSG91 OTP + booking confirmation
+- [ ] **EV Charging Filter** — Dedicated filter for EV-compatible spots
+- [ ] **Monthly Subscriptions** — Reserved spot plans for regular commuters
+- [ ] **React Native App** — Mobile app on the same backend
 
 ---
 
-# 📄 License
+## 🤝 Contributing
 
-This project is licensed under the MIT License.
+```bash
+git checkout -b feat/your-feature-name
+# make changes + add tests
+git commit -m "feat: add your feature"
+git push origin feat/your-feature-name
+# open a Pull Request
+```
+
+| Prefix | Use For |
+|---|---|
+| `feat:` | New feature |
+| `fix:` | Bug fix |
+| `docs:` | Documentation |
+| `refactor:` | Restructure without behaviour change |
+| `test:` | Adding/updating tests |
 
 ---
+
+## 📄 License
+
+MIT License — see [LICENSE](LICENSE) for details.
+
+---
+
+<div align="center">
+
+<br/>
+
+**Built for India's urban parking problem 🇮🇳**
+
+*SmartPark — Every search, smarter.*
+
+<br/>
+
+⭐ **Star this repo** if you found it useful!
+
+<br/>
+
+[![GitHub stars](https://img.shields.io/github/stars/yourusername/SmartPark?style=social)](https://github.com/yourusername/SmartPark/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/yourusername/SmartPark?style=social)](https://github.com/yourusername/SmartPark/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/yourusername/SmartPark?style=social)](https://github.com/yourusername/SmartPark/issues)
+
+</div>
 
 <div align="center">
 
