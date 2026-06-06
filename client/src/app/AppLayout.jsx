@@ -4,6 +4,7 @@ import { driverNavItems, getDefaultRouteForRole } from './navigation.js';
 import { useAuth } from '../features/auth/useAuth.js';
 import { useTheme } from '../features/theme/useTheme.js';
 import { NotificationBell } from '../features/notifications/NotificationBell.jsx';
+import { ChatWidget } from '../features/chat/ChatWidget.jsx';  // ← NEW
 
 export function AppLayout() {
   const { isAuthenticated, logout, user } = useAuth();
@@ -119,6 +120,9 @@ export function AppLayout() {
       <main>
         <Outlet />
       </main>
+
+      {/* AI chat assistant — floats over all pages, no impact on routing */}
+      <ChatWidget />                                            {/* ← NEW */}
     </div>
   );
 }

@@ -13,6 +13,7 @@
     "seed:parkings:fresh": "SEED_CLEAR=true node src/scripts/seedParkings.js"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.100.1",
     "bcryptjs": "^3.0.3",
     "cloudinary": "^2.10.0",
     "cors": "^2.8.5",
@@ -27,6 +28,7 @@
     "mongoose": "^9.0.1",
     "morgan": "^1.10.1",
     "multer": "^2.1.1",
+    "openai": "^6.42.0",
     "razorpay": "^2.9.6",
     "socket.io": "4.8.1",
     "xss-clean": "^0.1.4",

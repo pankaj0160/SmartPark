@@ -23,5 +23,8 @@ export const env = {
   RAZORPAY_WEBHOOK_SECRET: process.env.RAZORPAY_WEBHOOK_SECRET ?? '',
   ALLOW_TEST_PAYMENT: process.env.ALLOW_TEST_PAYMENT === 'true',
   TEST_COUPON_CODE: process.env.TEST_COUPON_CODE ?? '',
-  GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID ?? ''
+  GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID ?? '',
+  // ── AI Assistant ──────────────────────────────────────────────────────────
+
+  GROQ_API_KEY: process.env.GROQ_API_KEY ?? ''
 };
