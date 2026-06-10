@@ -11,7 +11,8 @@
     "test": "jest --testPathPatterns=integration --forceExit",
     "test:watch": "jest --testPathPattern='integration' --forceExit --watch",
     "seed:parkings": "node src/scripts/seedParkings.js",
-    "seed:parkings:fresh": "SEED_CLEAR=true node src/scripts/seedParkings.js"
+    "seed:parkings:fresh": "SEED_CLEAR=true node src/scripts/seedParkings.js",
+    "test:coverage": "jest --testPathPatterns=integration --forceExit --coverage"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.100.1",
@@ -51,6 +52,23 @@
     "testEnvironment": "node",
     "transform": {
       "^.+\\.js$": "babel-jest"
+    },
+    "collectCoverageFrom": [
+      "src/controllers/**/*.js",
+      "src/services/**/*.js",
+      "src/middleware/**/*.js",
+      "!src/**/*.test.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "lines": 15
+      },
+      "src/middleware/validateRequest.js": {
+        "lines": 100
+      },
+      "src/middleware/authorizeRoles.js": {
+        "lines": 70
+      }
     }
   }
 }
