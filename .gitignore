@@ -31,3 +31,11 @@ Thumbs.db
 .vscode/
 .idea/
 
+server/coverage/
+SmartPark/server/.env
+SmartPark/server/.env.test
+
+server/.env
+server/.env.local
+
+server/.env*
