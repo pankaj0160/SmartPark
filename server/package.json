@@ -9,10 +9,10 @@
     "start": "node src/server.js",
     "lint": "eslint .",
     "test": "jest --testPathPatterns=integration --forceExit",
-    "test:watch": "jest --testPathPattern='integration' --forceExit --watch",
+    "test:coverage": "jest --testPathPatterns=integration --forceExit --coverage",
+    "test:watch": "jest --testPathPatterns=integration --forceExit --watch",
     "seed:parkings": "node src/scripts/seedParkings.js",
-    "seed:parkings:fresh": "SEED_CLEAR=true node src/scripts/seedParkings.js",
-    "test:coverage": "jest --testPathPatterns=integration --forceExit --coverage"
+    "seed:parkings:fresh": "SEED_CLEAR=true node src/scripts/seedParkings.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.100.1",
