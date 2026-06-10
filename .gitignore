@@ -39,3 +39,15 @@ server/.env
 server/.env.local
 
 server/.env*
+
+
+# Backend environment files
+server/.env
+server/.env.local
+
+# Coverage reports
+server/coverage/
+
+# Dependencies
+server/node_modules/
+client/node_modules/
