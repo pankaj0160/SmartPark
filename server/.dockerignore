@@ -1,0 +1,26 @@
+# Dependencies — installed fresh inside the container via npm ci
+node_modules/
+
+# Environment secrets — never bake these into images
+.env
+.env.*
+!.env.example
+
+# Test files — not needed in production image
+src/tests/
+
+# Logs
+*.log
+logs/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Editor config
+.vscode/
+.idea/

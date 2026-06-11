@@ -1,0 +1,87 @@
+# ─────────────────────────────────────────────────────────────────
+#  SmartPark — Docker Compose
+#  Starts: API server + MongoDB
+#  Usage:  docker compose up        (starts everything)
+#          docker compose up -d     (starts in background)
+#          docker compose down      (stops everything)
+#          docker compose logs -f   (follow logs)
+# ─────────────────────────────────────────────────────────────────
+
+services:
+
+  # ── MongoDB ───────────────────────────────────────────────────
+  mongodb:
+    image: mongo:6                  # use official MongoDB 6 image
+    container_name: smartpark-mongo
+    restart: unless-stopped         # restart if it crashes, but not if you manually stop it
+
+    ports:
+      - "27017:27017"               # host:container — lets you connect with Compass too
+
+    volumes:
+      - mongo_data:/data/db         # persist data even after container stops
+
+    environment:
+      MONGO_INITDB_DATABASE: smartpark   # creates this DB on first start
+
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s             # give MongoDB time to boot before first check
+
+  # ── Express API ───────────────────────────────────────────────
+  api:
+    build:
+      context: ./server             # look for Dockerfile inside server/
+      dockerfile: Dockerfile
+
+    container_name: smartpark-api
+    restart: unless-stopped
+
+    ports:
+      - "5000:5000"                 # host:container
+
+    depends_on:
+      mongodb:
+        condition: service_healthy  # wait for MongoDB health check to pass first
+
+    environment:
+      NODE_ENV: development
+      PORT: 5000
+
+      # ✅ KEY: use service name "mongodb" NOT "localhost"
+      # Inside Docker, each container has its own localhost.
+      # "mongodb" is the service name above — Docker DNS resolves it.
+      MONGODB_URI: mongodb://mongodb:27017/smartpark
+
+      JWT_SECRET: development_secret_for_docker_only
+      JWT_EXPIRES_IN: 7d
+
+      # Allow frontend (running outside Docker) to connect
+      CLIENT_URL: http://localhost:5173,http://127.0.0.1:5173
+
+      # Optional services — leave blank if you don't have keys
+      # Docker won't fail if these are empty strings
+      CLOUDINARY_CLOUD_NAME: ""
+      CLOUDINARY_API_KEY: ""
+      CLOUDINARY_API_SECRET: ""
+      RAZORPAY_KEY_ID: ""
+      RAZORPAY_KEY_SECRET: ""
+      RAZORPAY_WEBHOOK_SECRET: ""
+      ALLOW_TEST_PAYMENT: "true"
+
+    # Live reload in development — mounts your source code into the container.
+    # Changes you make in server/src/ are immediately visible inside the container.
+    # IMPORTANT: node_modules is explicitly excluded (uses the container's version).
+    volumes:
+      - ./server/src:/app/src
+      - /app/node_modules           # anonymous volume — protects container's node_modules
+
+# ── Named Volumes ─────────────────────────────────────────────
+# Named volumes persist data on your host machine.
+# Running "docker compose down" removes containers but KEEPS these volumes.
+# Run "docker compose down -v" to also delete the volume (wipes the database).
+volumes:
+  mongo_data:
