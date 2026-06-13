@@ -325,6 +325,7 @@ SmartPark/
 
 - **Node.js 18+** → [nodejs.org](https://nodejs.org)
 - **MongoDB** → [Atlas free tier](https://www.mongodb.com/atlas) *(recommended)* or local with replica set
+- **Docker Desktop** *(optional)* → [docker.com](https://www.docker.com/products/docker-desktop/) — for `docker compose up` one-command startup
 
 > **`uv` (Python installer)** — listed for future Python AI microservices (demand forecasting). Current project is Node.js only. Install from [astral.sh/uv](https://github.com/astral-sh/uv) when adding Python features.
 
@@ -596,33 +597,53 @@ The compound index makes this O(log n) regardless of booking history size.
 
 ## 🧪 Testing
 
-```bash
+The test suite uses **Jest + Supertest** with a dedicated test database.
+Tests run automatically on every push via GitHub Actions CI.
+
+​```bash
 cd server
 
-# Run all tests
+# Run all integration tests
 npm test
 
-# Individual suites
-node --test src/tests/concurrency.test.js     # double-booking prevention
-node --test src/services/booking.service.test.js
-node --test src/services/occupancy.service.test.js
-node --test src/tests/e2e.test.js
-```
+# Run with coverage report
+npm run test:coverage
 
-### Test Coverage
+# Run in watch mode during development
+npm run test:watch
+​```
 
-| File | What It Verifies |
-|---|---|
-| `tests/concurrency.test.js` | Two simultaneous bookings for last slot → exactly one succeeds |
-| `services/booking.service.test.js` | ACID flow, overlap detection, code generation |
-| `services/occupancy.service.test.js` | Slot counting with cancelled/pending/paid bookings |
-| `services/payment.service.test.js` | Razorpay order creation, HMAC webhook verification |
-| `services/parking.service.test.js` | Geo search, ranking, availability injection |
-| `services/auth.service.test.js` | Register, login, Google OAuth token flow |
-| `middleware/authorizeRoles.test.js` | Driver blocked from owner routes |
-| `utils/bookingValidation.test.js` | IST lead-time check, date/time format rules |
+### Test Suites
 
-All services use `deps = {}` dependency injection — tests pass mock models with no real database needed.
+| Suite | File | What It Covers |
+|---|---|---|
+| **API Integration** | `tests/integration/api.integration.test.js` | `GET /parkings`, `POST /bookings`, `POST /payments` — status codes, response shape, auth guards |
+| **Auth Integration** | `tests/integration/auth.integration.test.js` | Register, login, duplicate email, weak password, JWT validation, RBAC (401 vs 403) |
+
+### What's Tested
+
+- ✅ Happy paths — successful register, login, parking listing
+- ✅ Auth guards — 401 on missing token, 401 on tampered JWT
+- ✅ RBAC — driver gets 403 on admin routes, not 401
+- ✅ Validation — invalid email, weak password return structured `errors[]` array
+- ✅ Duplicate handling — 409 on already-registered email
+- ✅ Response shape — all endpoints return `{ success, data }` or `{ success, message, errors[] }`
+
+### Test Setup
+
+Each test run:
+1. Connects to a **dedicated test database** (`smartpark_test`) — never touches production data
+2. `beforeEach` wipes all collections — every test starts from a clean slate
+3. `afterAll` disconnects and drops the test database
+
+JWT tokens in tests are signed with the same `JWT_SECRET` using the same
+`{ subject: user._id }` payload format your `authenticate` middleware expects —
+so auth middleware behaviour is identical to production.
+
+### CI
+
+Tests run automatically on GitHub Actions on every push and pull request to `main`.
+See the CI badge at the top of this README for current status.
 
 ---
 
@@ -648,15 +669,41 @@ ALLOW_TEST_PAYMENT=false               # switch to live Razorpay keys
 
 ### Docker
 
-```dockerfile
-FROM node:18-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --only=production
-COPY src ./src
-EXPOSE 5000
-CMD ["node", "src/server.js"]
-```
+The backend ships with a production `Dockerfile` and a `docker-compose.yml`
+that starts the full stack (API + MongoDB) with a single command.
+
+**Start everything locally:**
+
+​```bash
+# From the project root
+docker compose up
+
+# Or run in background
+docker compose up -d
+
+# Stop everything (keeps database data)
+docker compose down
+
+# Follow logs
+docker compose logs -f api
+​```
+
+**What `docker compose up` starts:**
+
+| Container | Image | Port | Purpose |
+|---|---|---|---|
+| `smartpark-api` | Built from `server/Dockerfile` | `5000` | Express API |
+| `smartpark-mongo` | `mongo:6` | `27017` | MongoDB with health check |
+
+The API container waits for MongoDB's health check to pass before starting
+(`depends_on: condition: service_healthy`). MongoDB data is persisted in a
+named Docker volume — `docker compose down` does not wipe your data.
+
+**Requirements:** [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running.
+
+> **Note:** The Docker setup uses a local MongoDB container. For production,
+> replace `MONGODB_URI` in `docker-compose.yml` with your Atlas connection string.
+
 
 ### Multi-Instance Socket.io (Redis Adapter)
 
@@ -738,9 +785,9 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 <br/>
 
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/SmartPark?style=social)](https://github.com/yourusername/SmartPark/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/yourusername/SmartPark?style=social)](https://github.com/yourusername/SmartPark/network/members)
-[![GitHub issues](https://img.shields.io/github/issues/yourusername/SmartPark?style=social)](https://github.com/yourusername/SmartPark/issues)
+[![GitHub stars](https://img.shields.io/github/stars/pankaj0160/SmartPark?style=social)](https://github.com/pankaj0160/SmartPark/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/pankaj0160/SmartPark?style=social)](https://github.com/pankaj0160/SmartPark/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/pankaj0160/SmartPark?style=social)](https://github.com/pankaj0160/SmartPark/issues)
 
 </div>
 
